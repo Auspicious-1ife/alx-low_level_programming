@@ -1,5 +1,5 @@
 #include <stdio.h>
-int main(void) 
+int main(void)
 {
 /**
 * main - This program prints a specific sentence to the console.
