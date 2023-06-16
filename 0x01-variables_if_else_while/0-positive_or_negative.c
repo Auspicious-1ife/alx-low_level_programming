@@ -2,20 +2,20 @@
 #include <stdlib.h>
 #include <time.h>
 /**
-* main - This program will assign a random number to the variable r.
+* main - This program will assign a random number to the variable n.
 * Return:0 (successful)
 */
 int main(void)
 {
-int r;
+int n;
 srand(time(0));
-r = rand() - RAND_MAX / 2;
-printf("%d is ", r);
-if (r > 0)
+n = rand() - RAND_MAX / 2;
+printf("%d is ", n);
+if (n > 0)
 {
 printf("positive");
 }
-else if (r < 0)
+else if (n < 0)
 {
 printf("negative");
 }
