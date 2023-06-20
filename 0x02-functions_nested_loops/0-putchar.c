@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-* main - Write a program that prints _putchar.
+* main - Write a program that prints _putchar to standard.
 * followed by a new line.
 * Return: 0 (on successful execution)
 */
