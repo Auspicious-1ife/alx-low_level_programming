@@ -1,10 +1,10 @@
 #include <stdio.h>
+#include "main.h"
 /**
 * main - Write a program that prints _putchar.
 * followed by a new line.
 * Return: 0 (on successful execution)
 */
-#include "main.h"
 int main(void)
 {
 char c = '_';
