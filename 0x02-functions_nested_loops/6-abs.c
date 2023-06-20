@@ -4,7 +4,7 @@
  * @n: The integer to compute the absolute value of.
  * Return: The absolute value of n.
  */
-int absolute_value(int n)
+int _abs(int);
 {
 if (n < 0)
 return (-n);
