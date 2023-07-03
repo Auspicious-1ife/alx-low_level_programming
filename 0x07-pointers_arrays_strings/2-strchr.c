@@ -17,5 +17,5 @@ s++;
 }
 if (*s == c)
 return (s);
-return (NULL);
+return NULL;
 }
