@@ -1,12 +1,12 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef LISTS_H
+#define LISTS_H
 /* Singly linked list structure */
-typedef struct listint_s
+struct listint_s
 {
 int n;
 struct listint_s *next;
-}
-listint_t;
+};
+typedef struct listint_s listint_t;
 /* Function prototypes */
  int _putchar(char c);
 size_t print_listint(const listint_t *h);
