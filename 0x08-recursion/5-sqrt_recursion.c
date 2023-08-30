@@ -11,14 +11,15 @@ int _sqrt_recursion(int n)
 {
 if (n < 0)
 return (-1);
-return sqrt_helper(n, 0);
+return (sqrt_helper(n, 0));
 }
 /**
  * sqrt_helper - Helper function to calculate the square root recursively.
  * @n: The number to calculate the square root of.
  * @i: The current value to check.
  *
- * Return: The square root of n, or -1 if it does not have a natural square root.
+ * Return: The square root of n,
+ * or -1 if it does not have a natural square root.
  */
 int sqrt_helper(int n, int i)
 {
