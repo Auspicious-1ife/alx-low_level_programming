@@ -3,8 +3,10 @@
  * is _prime_number - says if an integer is a prime number or not
  * is _primr_helper - determine whether a number is prime.
  * @n: number to evaluate
- *
- * Return: 1 if n is a prime number, 0 if not
+ * Helper function to check if a number is prime
+ *  Returns: 1 if the number is prime, 0 otherwise
+ *  Function to check if a number is prime
+ * Returns: 1 if the number is prime, 0 otherwise
  */
 
 int is_prime_helper(int n, int i);
