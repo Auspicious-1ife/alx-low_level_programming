@@ -1,67 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 /**
- * check_num - checks the  string there are digit
- * @str: array str
- * @isdigit: checks if str there are digit
- * Return: Always 0 (Success)
+ * is_positive_number - checks if a string represents a positive number
+ * @str: the input string
+ *
+ * Return: 1 if str represents a positive number, 0 otherwise
  */
-int check_num(char *str)
+int is_positive_number(char *str)
+{	
+int i = 0;
+while (str[i] != '\0')
 {
-	/*Declaring variables*/
-	unsigned int count;
-
-	count = 0;
-	while (count < strlen(str)) /*count string*/
-
-	{
-		{
-			return (0);
-		}
-
-		count++;
-	}
-	return (1);
+if (!(str[i] >= '0' && str[i] <= '9'))
+return (0);
+i++;
+}
+return (1);
 }
 /**
- * main - Print the name of the program
- * @argc: Count arguments
- * @argv: Arguments
+ * main - Entry point
+ * @argc: The number of command line arguments
+ * @argv: An array containing the command line arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0 if successful, 1 if there's an error
  */
-
 int main(int argc, char *argv[])
-
 {
-
-	/*Declaring variables*/
-	int count;
-	int str_to_int;
-	int sum = 0;
-
-	count = 1;
-	while (count < argc) /*Goes through the whole array*/
-	{
-		if (check_num(argv[count]))
-
-		{
-			str_to_int = atoi(argv[count]); /*ATOI --> convert string to int*/
-			sum += str_to_int;
-		}
-
-		/*Condition if one of the number contains symbols that are not digits*/
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		count++;
-	}
-
-	printf("%d\n", sum); /*print sum*/
-
-	return (0);
+int sum = 0;
+int i;
+if (argc == 1)
+{
+printf("0\n");
+return (0);
+}
+for (i = 1; i < argc; i++)
+{
+if (is_positive_number(argv[i]))
+{
+int num = atoi(argv[i]);
+sum += num;
+}
+else
+{
+printf("Error\n");
+return (1);
+}
+}
+printf("%d\n", sum);
+return (0);
 }
