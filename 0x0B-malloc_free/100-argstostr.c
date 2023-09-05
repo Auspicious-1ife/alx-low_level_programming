@@ -5,7 +5,8 @@
  * @ac: The number of arguments
  * @av: An array of strings containing the arguments
  *
- * Return: A pointer to the concatenated string, or NULL on failure
+ * Return: A pointer to the concatenated string,
+ * or NULL on failure
  */
 char *argstostr(int ac, char **av)
 {
@@ -24,7 +25,8 @@ total_length++; /* Account for the newline character */
 concatenated = malloc((total_length + 1) * sizeof(char));
 if (concatenated == NULL)
 return (NULL);
-/* Copy each argument followed by a newline character to the concatenated string */
+/* Copy each argument followed by a newline character*/
+ /* To the concatenated string */
 for (i = 0; i < ac; i++)
 {
 for (j = 0; av[i][j] != '\0'; j++)
