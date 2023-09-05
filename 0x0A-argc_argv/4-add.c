@@ -7,7 +7,7 @@
  * Return: 1 if str represents a positive number, 0 otherwise
  */
 int is_positive_number(char *str)
-{	
+{
 int i = 0;
 while (str[i] != '\0')
 {
