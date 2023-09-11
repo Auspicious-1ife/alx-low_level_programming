@@ -9,9 +9,9 @@ void print_dog(struct dog *d)
 if (d == NULL)
 return;
 /* Print name, if not NULL, or "(nil)" otherwise */
-printf("Dog's Name: %s\n", d->name ? d->name : "(nil)");
+printf("Name: %s\n", d->name ? d->name : "(nil)");
 /* Print age */
-printf("The Age: %.6f\n", d->age);
+printf("Age: %.6f\n", d->age);
 /* Print owner, if not NULL, or "(nil)" otherwise */
-printf("Owner Of The Dogis : %s\n", d->owner ? d->owner : "(nil)");
+printf("Owner: %s\n", d->owner ? d->owner : "(nil)");
 }
