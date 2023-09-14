@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
- int num_bytes, i;
+	int num_bytes, i;
 if (argc != 2)
 {
 printf("Error\n");
