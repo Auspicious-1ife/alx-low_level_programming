@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include "3-calc.h"
 op_t ops[] = {
-    {"+", op_add},
-    {"-", op_sub},
-    {"*", op_mul},
-    {"/", op_div},
-    {"%", op_mod},
-    {NULL, NULL}
-};
+{"+", op_add},
+{"-", op_sub},
+{"*", op_mul},
+{"/", op_div},
+{"%", op_mod},
+{NULL, NULL}
+}
+;
 int main(int argc, char **argv)
 {
 int digit1, digit2, result;
@@ -24,25 +25,25 @@ digit2 = atoi(argv[3]);
 if (*operator == '+')
 {
 result = op_add(digit1, digit2);
-} 
+}
 else if (*operator == '-')
 {
 result = op_sub(digit1, digit2);
-} 
+}
 else
 {
 if (*operator == '*')
 {
 result = op_mul(digit1, digit2);
-} 
+}
 else if (*operator == '/')
 {
 result = op_div(digit1, digit2);
- } 
+}
 else if (*operator == '%')
 {
 result = op_mod(digit1, digit2);
-} 
+}
 else
 {
 printf("Invalid operator: %s\n", operator);
