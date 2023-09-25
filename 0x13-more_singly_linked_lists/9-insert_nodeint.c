@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * insert_nodeint_at_index - Inserts a new node at a given position in a listint_t list.
+ * insert_nodeint_at_index - Inserts a new node at a given position.
  * @head: A pointer to a pointer to the head of the listint_t list.
  * @idx: The index at which the new node should be inserted, starting at 0.
  * @n: The integer value to be stored in the new node.
@@ -16,7 +16,7 @@ if (head == NULL)
 return (NULL);
 new_node = malloc(sizeof(listint_t));
 if (new_node == NULL)
-return NULL;
+return (NULL);
 new_node->n = n;
 if (idx == 0)
 {
@@ -26,7 +26,7 @@ return (new_node);
 }
 current = *head;
 for (i = 0; i < idx - 1 && current != NULL; i++)
- {
+{
 current = current->next;
 }
 if (i != idx - 1)
