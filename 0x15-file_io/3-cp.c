@@ -3,6 +3,12 @@
 #include <unistd.h>
 #include <fcntl.h>
 #define BUFFER_SIZE 1024
+/**
+ * error_exit - Handle errors and exit the program with an appropriate error code.
+ * @code: The error code to exit with.
+ * @message: The error message format.
+ * @arg: An argument to include in the error message.
+ */
 void error_exit(int code, const char *message, const char *arg)
 {
 dprintf(STDERR_FILENO, message, arg);
