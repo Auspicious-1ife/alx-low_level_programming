@@ -6,77 +6,82 @@
 #define BUFFER_SIZE 1024
 
 /**
- * error_exit - Handle errors and exit the program with an appropriate error code.
- * @code: The error code to exit with.
+ * error_exit - Print an error message and exit with the specified code.
+ * @code: The exit code.
  * @message: The error message format.
- * @arg: An argument to include in the error message.
+ * @arg: The argument for the error message.
  */
-void error_exit(int code, const char *message, const char *arg) {
-    char error_message[1024];
-    sprintf(error_message, message, arg);
-    dprintf(STDERR_FILENO, "%s\n", error_message);
-    exit(code);
+void error_exit(int code, const char *message, const char *arg)
+{
+	dprintf(STDERR_FILENO, message, arg);
+	exit(code);
 }
 
 /**
- * copy_file - Copy the content of one file to another.
- * @file_from: The path to the source file.
- * @file_to: The path to the destination file.
+ * main - Copy the content of one file to another.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line argument strings.
+ *
+ * Return: 0 on success, otherwise exit with an error code.
  */
-void copy_file(const char *file_from, const char *file_to) {
-    int fd_src, fd_dest;
-    ssize_t bytes_read, bytes_written;
-    char buffer[BUFFER_SIZE];
-    char fd_src_str[12], fd_dest_str[12];
+int main(int argc, char *argv[])
+{
+	int fd_src, fd_dest;
+	ssize_t bytes_read, bytes_written;
+	char buffer[BUFFER_SIZE];
+	char *file_from, *file_to;
+	char fd_src_str[12], fd_dest_str[12];
 
-    fd_src = open(file_from, O_RDONLY);
-    if (fd_src == -1) {
-        error_exit(98, "Error: Can't read from file %s\n", file_from);
-    }
+	if (argc != 3)
+	{
+		error_exit(97, "Usage: cp file_from file_to\n", NULL);
+	}
 
- 
-    fd_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    if (fd_dest == -1) {
-        error_exit(99, "Error: Can't write to file %s\n", file_to);
-    }
+	file_from = argv[1];
+	file_to = argv[2];
 
-    while (1) {
-        bytes_read = read(fd_src, buffer, BUFFER_SIZE);
-        if (bytes_read == -1) {
-            error_exit(98, "Error: Can't read from file %s\n", file_from);
-        }
-        if (bytes_read == 0) {
-            break;
-        }
+	fd_src = open(file_from, O_RDONLY);
+	if (fd_src == -1)
+	{
+		error_exit(98, "Error: Can't read from file %s\n", file_from);
+	}
 
-        bytes_written = write(fd_dest, buffer, bytes_read);
-        if (bytes_written == -1 || bytes_written != bytes_read) {
-            error_exit(99, "Error: Can't write to file %s\n", file_to);
-        }
-    }
+	fd_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd_dest == -1)
+	{
+		error_exit(99, "Error: Can't write to file %s\n", file_to);
+	}
 
-    
-    if (close(fd_src) == -1) {
-        snprintf(fd_src_str, sizeof(fd_src_str), "%d", fd_src);
-        error_exit(100, "Error: Can't close fd %s\n", fd_src_str);
-    }
+	while (1)
+	{
+		bytes_read = read(fd_src, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+		{
+			error_exit(98, "Error: Can't read from file %s\n", file_from);
+		}
+		if (bytes_read == 0)
+		{
+			break;
+		}
 
-    
-    if (close(fd_dest) == -1) {
-        snprintf(fd_dest_str, sizeof(fd_dest_str), "%d", fd_dest);
-        error_exit(100, "Error: Can't close fd %s\n", fd_dest_str);
-    }
-}
+		bytes_written = write(fd_dest, buffer, bytes_read);
+		if (bytes_written == -1 || bytes_written != bytes_read)
+		{
+			error_exit(99, "Error: Can't write to file %s\n", file_to);
+		}
+	}
 
-int main(int argc, char *argv[]) {
-     const char *file_from = argv[1];
-  const char *file_to = argv[2];
+	if (close(fd_src) == -1)
+	{
+		snprintf(fd_src_str, sizeof(fd_src_str), "%d", fd_src);
+		error_exit(100, "Error: Can't close fd %s\n", fd_src_str);
+	}
 
-	if (argc != 3) {
-        error_exit(97, "Usage: cp file_from file_to\n", NULL);
-    }
+	if (close(fd_dest) == -1)
+	{
+		snprintf(fd_dest_str, sizeof(fd_dest_str), "%d", fd_dest);
+		error_exit(100, "Error: Can't close fd %s\n", fd_dest_str);
+	}
 
-    copy_file(file_from, file_to);
-
-    return (0);
+	return (0);
 }
