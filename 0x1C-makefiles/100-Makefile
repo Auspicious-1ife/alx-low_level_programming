@@ -1,0 +1,36 @@
+# Define the compiler
+CC = gcc
+
+# Define the source files
+SRC = main.c school.c
+
+# Define the object files (automatically derived from source files)
+OBJ = $(SRC:.c=.o)
+
+# Define the output executable name
+NAME = school
+
+# Defines the progam to delete files
+RM = rm -f
+# Defines the CFlags to be used during compilation
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean fclean oclean re
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) $(OBJ) $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) $(OBJ) $(NAME) *~ \#*
+
+re: fclean all
+
+$(OBJ): m.h
