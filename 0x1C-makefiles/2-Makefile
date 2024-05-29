@@ -1,0 +1,23 @@
+# Define the compiler
+CC = gcc
+
+# Define the source files
+SRC = main.c school.c
+
+# Define the object files (automatically derived from source files)
+OBJ = $(SRC:.c=.o)
+
+# Define the output executable name
+NAME = school
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(NAME)
+
+.PHONY: all clean' > Makefile
