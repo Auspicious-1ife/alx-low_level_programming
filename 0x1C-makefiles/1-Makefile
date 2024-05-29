@@ -1,0 +1,7 @@
+# creating a makefile which consists of commands to compile and execute main.c files.
+
+CC = gcc
+SRC = main.c school.c
+
+all: $(SRC)
+	$(CC) $(SRC) -o school
