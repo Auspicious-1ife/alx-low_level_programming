@@ -5,12 +5,14 @@ represented by a grid of 0s (water) and 1s (land),
 where the grids are connected vertically and horizontally in a rectangle.
 """
 
+
 def island_perimeter(grid):
     """
     Calculates the perimeter of the island represented in the grid.
 
     Args:
-        grid (list of list of ints): A grid where 0 represents water and 1 represents land.
+        grid (list of list of ints): A grid where 0 represents water and,
+        1 represents land.
 
     Returns:
         int: The perimeter of the island.
