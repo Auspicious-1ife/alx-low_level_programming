@@ -1,0 +1,1 @@
+0x1E-search_algorithms:This project focuses on implementing and understanding various search algorithms. These algorithms are fundamental in computer science, providing the means to efficiently locate specific data within a collection. The search algorithms covered in this project include both linear and binary search techniques.
